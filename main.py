@@ -44,7 +44,7 @@ def run():
 
 def obtener_corpus(file_name):
     contexto = globals().copy()
-    with open(file_name, 'r', encoding='utf-8') as f:
+    with open('corpus/'+file_name, 'r', encoding='utf-8') as f:
         codigo = f.read()
     exec(codigo, contexto)
     corpus_lematizado = contexto['corpus']
