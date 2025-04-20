@@ -1,28 +1,28 @@
 
 # Corpus TF-IDF Analyzer
 
-**TF-IDF** (Term Frequency-Inverse Document Frequency) es un modelo para análisis de texto. El objetivo es aplicar técnicas de procesamiento de lenguaje natural (NLP), como **eliminación de stopwords**, **lematización**, y generar una matriz **TF-IDF**.
+**TF-IDF** (Term Frequency-Inverse Document Frequency) is a model for text analysis. The goal is to apply natural language processing (NLP) techniques such as **stopword removal**, **lemmatization**, and generate a **TF-IDF matrix**.
 
-## Descripción
+## Description
 
-Se análizará un conjunto de documentos (corpus), y extraerá información:
-- Palabras más frecuentes.
-- Palabra menos utilizada.
-- Palabras más repetidas en cada oración.
-- Distribución de frecuencia de palabras.
-- Visualización de resultados.
+A set of documents (corpus) will be analyzed and information will be extracted:
+- Most frequent words.
+- Least used word.
+- Most repeated words in each sentence.
+- Word frequency distribution.
+- Results visualization.
 
-## Características
+## Features
 
-- **Preprocesamiento de texto**: elimina las **stopwords** y aplica **lematización** para mejorar la calidad del análisis.
-- **TF-IDF**: genera una **matriz TF-IDF** que representa la importancia de las palabras dentro del corpus.
-- **Análisis de frecuencia**: encuentra las palabras más repetidas y la palabra menos frecuente.
-- **Visualización**: ofrece gráficos sobre la distribución de la frecuencia de palabras.
+- **Text preprocessing**: removes **stopwords** and applies **lemmatization** to improve the quality of the analysis.
+- **TF-IDF**: generates a **TF-IDF matrix** that represents the importance of words within the corpus.
+- **Frequency analysis**: finds the most repeated words and the least frequent word.
+- **Visualization**: provides charts on the word frequency distribution.
 
-## Ejemplo de salida
+## Example output:
 
 ```
-Matriz TF-IDF:
+TF-IDF matrix:
 ╭─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
 │ 0     0    0     0     0    0    0     0     0     0     0.301 0.179 0     0     0     0   0     0   0     0    0     0     0   0.301 0     0    0    0.224 0     0     0     0.512 0     0.602 0     0.301 0     0     0     0    0.147 0     0    0     0     0   0     0     0   0     0    0     0     0    0   0     0     │
 │ 0.272 0.32 0     0     0    0.32 0     0     0     0     0     0     0.238 0     0     0   0     0   0     0    0     0     0   0     0     0.32 0.32 0     0     0.156 0     0     0     0     0     0     0     0     0     0    0.156 0     0.32 0     0.272 0   0     0     0   0     0    0     0.238 0.32 0   0.272 0     │
@@ -36,7 +36,7 @@ Matriz TF-IDF:
 │ 0     0    0     0     0.42 0    0     0     0     0     0     0.249 0     0     0     0   0     0   0     0.42 0     0     0   0     0.357 0    0    0     0     0     0     0     0     0     0     0     0     0     0     0.42 0.205 0     0    0.249 0     0   0     0     0   0     0.42 0     0     0    0   0     0     │
 ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 
-Vocabulario:
+Vocabulary:
 ╭─────────┬───────────────────────────────────────────────────────────────╮
 │  Letra  │ Palabras                                                      │
 ├─────────┼───────────────────────────────────────────────────────────────┤
@@ -60,9 +60,9 @@ Vocabulario:
 │    W    │ weakly, web, widely                                           │
 ╰─────────┴───────────────────────────────────────────────────────────────╯
 
-Jerarquía de 6 palabras más usadas:
+Hierarchy of the 6 most used words:
 ╭─────┬────────────┬─────────╮
-│  #  │  Palabra   │  Veces  │
+│  #  │    Word    │  Times  │
 ├─────┼────────────┼─────────┤
 │  1  │   python   │    7    │
 │  2  │ javascript │    7    │
@@ -72,11 +72,11 @@ Jerarquía de 6 palabras más usadas:
 │  6  │  language  │    3    │
 ╰─────┴────────────┴─────────╯
 
-La palabra menos utilizada es 'programmer' con 1 aparición/es.
+The least used word is 'programmer' with 1 occurrence(s).
 
-Palabra más repetida por cada oración:
+Most repeated word per sentence:
 ╭────────────┬─────────┬────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-│  Palabra   │  Veces  │ Oración                                                                                                │
+│    Word    │  Times  │ Sentence                                                                                               │
 ├────────────┼─────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────┤
 │  language  │    2    │ python interpret high-level language cplus compile low-level language                                  │
 │ javascript │    1    │ javascript run web browser python use various application include data science artificial intelligence │
@@ -91,34 +91,53 @@ Palabra más repetida por cada oración:
 ╰────────────┴─────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 ```
 
-## Tecnologías utilizadas
+## Technologies Used
 
 - **Python**
-- **NLTK**: Biblioteca para procesamiento de lenguaje natural.
-- **Scikit-learn**: Para la generación de la matriz TF-IDF.
-- **Matplotlib**: Para la visualización de los datos.
+- **NLTK**: Library for natural language processing.
+- **Scikit-learn**: Used for generating the TF-IDF matrix.
+- **Matplotlib**: Used for data visualization.
 
-## Instalación
+## Installation
 
-1. Clonar este repositorio:
+1. Clone this repository:
    ```bash
    git clone https://github.com/AbrSantiago/corpus-tfidf-analyzer.git
    ```
 
-2. Crear un entorno virtual e instálarlo en él:
+2. Create a virtual environment and activate it:
    ```bash
    python -m venv .venv
-   source .venv/bin/activate  # En Windows usa .venv\Scripts\activate
+   source .venv/bin/activate  # On Windows use .venv\Scripts\activate
    ```
 
-3. Instalar las dependencias:
+3. Install the dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
-## Uso
+## NLTK Data Preparation
 
-Ejecuta el script principal:
+This project uses the NLTK library, which requires downloading some datasets before running the scripts.
+
+Run the following Python script once to ensure all necessary NLTK resources are downloaded:
+````bash
+python prepare_environment.py
+````
+
+### Resources included:
+- punkt
+- wordnet
+- stopwords
+- averaged_perceptron_tagger
+
+Note: If you skip this step, the script will attempt to download them automatically during execution, 
+which might trigger repeated download prompts even if the files are already present.
+
+
+## Usage
+
+Run the main script:
 ```bash
 python main.py
 ```
