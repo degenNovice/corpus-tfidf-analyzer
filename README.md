@@ -5,12 +5,12 @@
 
 ## Descripción
 
-Se realizará un análisis sobre un conjunto de documentos (corpus), y extrae información relevante como:
-- Las palabras más frecuentes.
-- La palabra menos utilizada.
-- Las palabras más repetidas en cada oración.
-- La distribución de frecuencia de palabras.
-- La visualización de resultados.
+Se análizará un conjunto de documentos (corpus), y extraerá información:
+- Palabras más frecuentes.
+- Palabra menos utilizada.
+- Palabras más repetidas en cada oración.
+- Distribución de frecuencia de palabras.
+- Visualización de resultados.
 
 ## Características
 
