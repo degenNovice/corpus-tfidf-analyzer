@@ -108,7 +108,7 @@ Palabra más repetida por cada oración:
 2. Crear un entorno virtual e instálarlo en él:
    ```bash
    python -m venv .venv
-   source .venv/bin/activate  # En Windows usa .venv\Scriptsctivate
+   source .venv/bin/activate  # En Windows usa .venv\Scripts\activate
    ```
 
 3. Instalar las dependencias:
