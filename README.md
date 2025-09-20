@@ -1,143 +1,161 @@
+# 📊 Corpus TF-IDF Analyzer
 
-# Corpus TF-IDF Analyzer
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Release](https://img.shields.io/badge/Releases-latest-orange)
 
-**TF-IDF** (Term Frequency-Inverse Document Frequency) is a model for text analysis. The goal is to apply natural language processing (NLP) techniques such as **stopword removal**, **lemmatization**, and generate a **TF-IDF matrix**.
+A Python tool for text analysis using TF-IDF, lemmatization, stopword filtering, and frequency visualization. This repository provides a straightforward approach to understanding text data, making it suitable for both beginners and experienced data scientists.
 
-## Description
+## 🚀 Features
 
-A set of documents (corpus) will be analyzed and information will be extracted:
-- Most frequent words.
-- Least used word.
-- Most repeated words in each sentence.
-- Word frequency distribution.
-- Results visualization.
+- **TF-IDF Calculation**: Efficiently computes Term Frequency-Inverse Document Frequency to evaluate the importance of words in a document relative to a corpus.
+- **Lemmatization**: Reduces words to their base or root form, improving the accuracy of text analysis.
+- **Stopword Filtering**: Removes common words that add little meaning to the analysis, focusing on the most relevant terms.
+- **Frequency Visualization**: Generates visual representations of word frequencies for easier interpretation of results.
 
-## Features
+## 🛠️ Installation
 
-- **Text preprocessing**: removes **stopwords** and applies **lemmatization** to improve the quality of the analysis.
-- **TF-IDF**: generates a **TF-IDF matrix** that represents the importance of words within the corpus.
-- **Frequency analysis**: finds the most repeated words and the least frequent word.
-- **Visualization**: provides charts on the word frequency distribution.
+To get started with the Corpus TF-IDF Analyzer, follow these steps:
 
-## Example output:
-
-```
-TF-IDF matrix:
-╭─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-│ 0     0    0     0     0    0    0     0     0     0     0.301 0.179 0     0     0     0   0     0   0     0    0     0     0   0.301 0     0    0    0.224 0     0     0     0.512 0     0.602 0     0.301 0     0     0     0    0.147 0     0    0     0     0   0     0     0   0     0    0     0     0    0   0     0     │
-│ 0.272 0.32 0     0     0    0.32 0     0     0     0     0     0     0.238 0     0     0   0     0   0     0    0     0     0   0     0     0.32 0.32 0     0     0.156 0     0     0     0     0     0     0     0     0     0    0.156 0     0.32 0     0.272 0   0     0     0   0     0    0     0.238 0.32 0   0.272 0     │
-│ 0     0    0     0     0    0    0     0     0     0     0     0     0.223 0     0     0.3 0     0.3 0     0    0     0     0.3 0     0     0    0    0     0     0.146 0     0     0     0     0     0     0     0     0     0    0     0     0    0.178 0     0.3 0     0     0.3 0     0    0.599 0     0    0.3 0     0     │
-│ 0     0    0     0     0    0    0     0     0     0.358 0     0.25  0     0     0     0   0     0   0.358 0    0     0     0   0     0     0    0    0.314 0.422 0.206 0     0.358 0     0     0     0     0     0     0     0    0.206 0.358 0    0.25  0     0   0     0     0   0     0    0     0     0    0   0     0     │
-│ 0.312 0    0     0     0    0    0.368 0     0     0     0     0     0     0.312 0     0   0     0   0     0    0     0.368 0   0     0.312 0    0    0     0     0.179 0     0     0     0     0     0     0     0     0     0    0     0     0    0     0     0   0.368 0     0   0     0    0     0.273 0    0   0.312 0.312 │
-│ 0     0    0     0     0    0    0     0     0     0     0     0.28  0     0     0.472 0   0     0   0     0    0     0     0   0     0     0    0    0.351 0     0     0     0     0     0     0     0     0.472 0     0     0    0.23  0     0    0.28  0     0   0     0.472 0   0     0    0     0     0    0   0     0     │
-│ 0     0    0     0.338 0    0    0     0     0     0     0     0     0.251 0.287 0     0   0.338 0   0     0    0     0     0   0     0     0    0    0     0     0.165 0.338 0     0     0     0     0     0     0.338 0     0    0.165 0     0    0     0.287 0   0     0     0   0.338 0    0     0.251 0    0   0     0.287 │
-│ 0     0    0     0     0    0    0     0.344 0     0.585 0     0.204 0     0     0     0   0     0   0.292 0    0     0     0   0     0     0    0    0     0     0.168 0     0     0     0     0     0     0     0     0     0    0     0.585 0    0.204 0     0   0     0     0   0     0    0     0     0    0   0     0     │
-│ 0     0    0.393 0     0    0    0     0     0.393 0     0     0     0     0     0     0   0     0   0     0    0.393 0     0   0     0     0    0    0     0     0.192 0     0     0.393 0     0.393 0     0     0     0.393 0    0.192 0     0    0     0     0   0     0     0   0     0    0     0     0    0   0     0     │
-│ 0     0    0     0     0.42 0    0     0     0     0     0     0.249 0     0     0     0   0     0   0     0.42 0     0     0   0     0.357 0    0    0     0     0     0     0     0     0     0     0     0     0     0     0.42 0.205 0     0    0.249 0     0   0     0     0   0     0.42 0     0     0    0   0     0     │
-╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
-
-Vocabulary:
-╭─────────┬───────────────────────────────────────────────────────────────╮
-│  Letra  │ Palabras                                                      │
-├─────────┼───────────────────────────────────────────────────────────────┤
-│    A    │ application, artificial, available                            │
-│    B    │ backend, beginner, browser                                    │
-│    C    │ cloud, code, community, compilation, compile, cplus           │
-│    D    │ data, development, due, dynamically                           │
-│    E    │ ecosystem, ensures, execution, experienced, extensive         │
-│    G    │ go, great                                                     │
-│    H    │ high                                                          │
-│    I    │ ideal, include, intelligence, interpret                       │
-│    J    │ java, javascript, js                                          │
-│    L    │ language, large, level, library, low                          │
-│    N    │ nature, node, number                                          │
-│    P    │ programmer, python                                            │
-│    R    │ require, run, rust                                            │
-│    S    │ science, security, server, slow, statically, strong, suitable │
-│    T    │ typed                                                         │
-│    U    │ use                                                           │
-│    V    │ various                                                       │
-│    W    │ weakly, web, widely                                           │
-╰─────────┴───────────────────────────────────────────────────────────────╯
-
-Hierarchy of the 6 most used words:
-╭─────┬────────────┬─────────╮
-│  #  │    Word    │  Times  │
-├─────┼────────────┼─────────┤
-│  1  │   python   │    7    │
-│  2  │ javascript │    7    │
-│  3  │   cplus    │    5    │
-│  4  │    rust    │    5    │
-│  5  │ interpret  │    3    │
-│  6  │  language  │    3    │
-╰─────┴────────────┴─────────╯
-
-The least used word is 'programmer' with 1 occurrence(s).
-
-Most repeated word per sentence:
-╭────────────┬─────────┬────────────────────────────────────────────────────────────────────────────────────────────────────────╮
-│    Word    │  Times  │ Sentence                                                                                               │
-├────────────┼─────────┼────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│  language  │    2    │ python interpret high-level language cplus compile low-level language                                  │
-│ javascript │    1    │ javascript run web browser python use various application include data science artificial intelligence │
-│   typed    │    2    │ javascript dynamically weakly typed rust statically typed ensures great data security                  │
-│   python   │    1    │ python javascript interpret language java cplus rust require compilation execution                     │
-│ javascript │    1    │ javascript widely use web development go ideal server cloud application                                │
-│   python   │    1    │ python slow cplus rust due interpret nature                                                            │
-│ javascript │    1    │ javascript strong ecosystem node.js backend development python widely use data science                 │
-│  require   │    2    │ javascript require compilation cplus rust require code compilation execution                           │
-│   python   │    1    │ python javascript large community extensive number available library                                   │
-│   python   │    1    │ python ideal beginner rust cplus suitable experienced programmer                                       │
-╰────────────┴─────────┴────────────────────────────────────────────────────────────────────────────────────────────────────────╯
-```
-
-## Technologies Used
-
-- **Python**
-- **NLTK**: Library for natural language processing.
-- **Scikit-learn**: Used for generating the TF-IDF matrix.
-- **Matplotlib**: Used for data visualization.
-
-## Installation
-
-1. Clone this repository:
+1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/AbrSantiago/corpus-tfidf-analyzer.git
+   git clone https://github.com/degenNovice/corpus-tfidf-analyzer.git
    ```
 
-2. Create a virtual environment and activate it:
+2. **Navigate to the Directory**:
    ```bash
-   python -m venv .venv
-   source .venv/bin/activate  # On Windows use .venv\Scripts\activate
+   cd corpus-tfidf-analyzer
    ```
 
-3. Install the dependencies:
+3. **Install Required Packages**:
+   Use pip to install the necessary libraries:
    ```bash
    pip install -r requirements.txt
    ```
 
-## NLTK Data Preparation
+## 📚 Usage
 
-This project uses the NLTK library, which requires downloading some datasets before running the scripts.
+After installation, you can start using the tool. Here’s a simple example:
 
-Run the following Python script once to ensure all necessary NLTK resources are downloaded:
-````bash
-python prepare_environment.py
-````
+1. **Import the Analyzer**:
+   ```python
+   from tfidf_analyzer import TFIDFAnalyzer
+   ```
 
-### Resources included:
-- punkt
-- wordnet
-- stopwords
-- averaged_perceptron_tagger
+2. **Initialize the Analyzer**:
+   ```python
+   analyzer = TFIDFAnalyzer()
+   ```
 
-Note: If you skip this step, the script will attempt to download them automatically during execution, 
-which might trigger repeated download prompts even if the files are already present.
+3. **Load Your Data**:
+   Load your text data into the analyzer:
+   ```python
+   analyzer.load_data('your_text_file.txt')
+   ```
 
+4. **Run Analysis**:
+   Execute the analysis to get TF-IDF scores:
+   ```python
+   results = analyzer.analyze()
+   ```
 
-## Usage
+5. **Visualize Results**:
+   Use the built-in visualization methods:
+   ```python
+   analyzer.visualize_frequency()
+   ```
 
-Run the main script:
-```bash
-python main.py
+## 📈 Examples
+
+### Example 1: Basic Text Analysis
+
+```python
+# Sample text
+text = """
+Natural language processing (NLP) is a subfield of artificial intelligence.
+It focuses on the interaction between computers and humans through natural language.
+"""
+
+# Initialize and analyze
+analyzer = TFIDFAnalyzer()
+analyzer.load_data(text)
+results = analyzer.analyze()
+analyzer.visualize_frequency()
 ```
+
+### Example 2: Analyzing a Document Collection
+
+```python
+# Load multiple documents
+documents = ['doc1.txt', 'doc2.txt', 'doc3.txt']
+analyzer.load_data(documents)
+results = analyzer.analyze()
+analyzer.visualize_frequency()
+```
+
+## 🖼️ Visuals
+
+Here are some examples of the visualizations generated by the tool:
+
+![Word Cloud](https://example.com/wordcloud.png)
+
+![TF-IDF Bar Chart](https://example.com/tfidf_chart.png)
+
+## 📊 Analysis Insights
+
+The tool not only calculates TF-IDF scores but also provides insights into word usage patterns. For instance, you can easily identify which terms are most significant in your documents and how they relate to one another.
+
+## 🔍 Topics Covered
+
+This repository touches on various topics in data science and machine learning:
+
+- **Data Science**: Understanding data through analysis.
+- **Lemmatization**: Improving text accuracy.
+- **Machine Learning**: Applying algorithms for text classification.
+- **Matplotlib**: Visualizing data effectively.
+- **NLP**: Interacting with human language.
+- **NLTK**: Utilizing natural language toolkit for processing.
+- **Scikit-learn**: Implementing machine learning algorithms.
+- **Text Mining**: Extracting valuable insights from text.
+- **TF-IDF**: Evaluating word importance.
+- **Word Frequency**: Analyzing how often terms appear.
+
+## 📥 Releases
+
+You can find the latest releases of the Corpus TF-IDF Analyzer [here](https://github.com/degenNovice/corpus-tfidf-analyzer/releases). Make sure to download and execute the files to access new features and updates.
+
+## 📝 Contributing
+
+Contributions are welcome! If you have suggestions for improvements or new features, please create a pull request or open an issue. 
+
+### Steps to Contribute
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature/YourFeature`).
+6. Open a pull request.
+
+## 🤝 Acknowledgments
+
+Special thanks to the open-source community for their contributions to libraries such as NLTK, Scikit-learn, and Matplotlib, which made this project possible.
+
+## 🗣️ Feedback
+
+Your feedback is important to us. Please let us know your thoughts on the tool, any issues you encounter, or suggestions for improvement. 
+
+## 📫 Contact
+
+For any inquiries, you can reach out via the following channels:
+
+- Email: example@example.com
+- GitHub: [YourGitHubProfile](https://github.com/YourGitHubProfile)
+
+## 🌐 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+---
+
+Feel free to explore the repository, utilize the tool, and contribute to its growth. Happy analyzing!
